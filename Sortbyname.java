@@ -1,24 +1,13 @@
 package collectionframework;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Comparator;
 
-public class Main {
-
-	public static void main(String[] args) {
-		List<Employee> arr=new ArrayList<>();
-		arr.add(new Employee("John","ADM"));
-		arr.add(new Employee("Adam","CDB"));
-		arr.add(new Employee("Selena","EAS"));
-		arr.add(new Employee("Brian","CDB"));
-		
-		Collections.sort(arr,new Sortbyname());
-		for(Employee e:arr)
-		{
-			System.out.println("Employee name:"+e.getname()+" Department:"+e.getdept());	
-		}
-
+public class Sortbyname implements Comparator<Employee>{
+	public int compare(Employee e1,Employee e2)
+	{
+		String s1=e1.getname();
+		String s2=e2.getname();
+		return s1.compareTo(s2);
 	}
 
 }
